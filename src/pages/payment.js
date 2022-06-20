@@ -21,6 +21,8 @@ var requestOptions = {
   body: null,
 };
 
+const paymentURL = "https://6mk3hvtjw9.execute-api.ap-southeast-1.amazonaws.com/Dev/payment/";
+
 const requestOptions1 = {
   method: "POST",
   mode: "cors",
@@ -73,7 +75,7 @@ const Payment = (props) => {
       data.ReqPay.Payer.name = formData.mobile;
       requestOptions.body = JSON.stringify(data);
       fetch(
-        "https://et32mpbgpe.execute-api.us-east-1.amazonaws.com/Dev/payment",
+        paymentURL,
         requestOptions
       )
         .then((res) => res.clone().json())
@@ -288,7 +290,7 @@ const Payment = (props) => {
     };
     requestOptions1.body = JSON.stringify(data);
     fetch(
-      "https://et32mpbgpe.execute-api.us-east-1.amazonaws.com/Dev/payment",
+      paymentURL,
       requestOptions1
     )
       .then((res) => res.clone().json())
